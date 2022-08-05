@@ -8,21 +8,17 @@ const AddArgonaut = () => {
 
     const handleFormChange = e => {
         setNewArgonaut(e.target.value)
-        console.log(newArgonaut)
     }
 
     const addArgonaut = async () => {
-        try{
-            if(newArgonaut){
+        try {
+            if (newArgonaut) {
                 let argonautData = {
                     name: newArgonaut
                 }
-                console.log(newArgonaut)
-                const response = await ArgonautsDataService.postArgonaut(argonautData)
-                console.log("response", response)
-            }else return
-        }
-        catch (e){
+                await ArgonautsDataService.postArgonaut(argonautData)
+            } else return
+        } catch (e) {
             console.error(`Something went wrong when posting new argonaut, ${e}`)
         }
 
@@ -37,7 +33,7 @@ const AddArgonaut = () => {
                            placeholder={"Charalampos"}
                            value={newArgonaut}
                            onChange={handleFormChange}
-                           required />
+                           required/>
                     <button onClick={addArgonaut}>Envoyer</button>
                 </form>
             </div>
