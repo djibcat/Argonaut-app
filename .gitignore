@@ -13,7 +13,6 @@ backend/.pnp.js
 /coverage
 
 # production
-/build
 
 # misc
 frontend/.DS_Store

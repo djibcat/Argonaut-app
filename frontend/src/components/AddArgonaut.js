@@ -29,7 +29,7 @@ const AddArgonaut = () => {
     }
     return (
         <div className={"flex justify-center"}>
-            <div className={"flex-col text-center mt-2"}>
+            <div className={"flex-col text-center mt-5"}>
                 <h2>Ajouter un(e) Argonaute</h2>
                 <p className={"pt-10"}>Nom de l'Argonaute</p>
                 <form>

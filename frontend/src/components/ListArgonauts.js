@@ -4,14 +4,14 @@ import ArgonautsDataService from "../services/ArgonautsDataService";
 const ListArgonaut = () => {
 
     const [argonauts, setArgonauts] = useState([]);
-    useEffect(()=> {
-        (async function fetchData(){
+    useEffect(() => {
+        (async function fetchData() {
             await retrieveArgonauts()
         })()
-    },[])
+    }, [])
 
     const retrieveArgonauts = async () => {
-        try{
+        try {
             const response = await ArgonautsDataService.getAllArgonauts();
             response && setArgonauts(response.data)
             console.log(response.data)
@@ -22,14 +22,26 @@ const ListArgonaut = () => {
     }
     return (
 
-        <div className={"flex justify-center"}>
-            <div className={"flex-col mt-2"}>
-                <h2>Membres de l'équipage</h2>
-                {argonauts && argonauts.map((argonaut, index) => (
-                    <div key={index}>{argonaut.name}</div>
-                ))}
+        <>
+            <div className={"flex justify-center"}>
+                <div className={"flex mt-5"}>
+                    <h2>Membres de l'équipage</h2>
+                </div>
             </div>
-        </div>
+            <div className={"flex justify-center mt-2"}>
+                <div className={"argonaut-list"}>
+                    {
+                        argonauts && argonauts.map((argonaut, index) => (
+
+                            <div key={index} className={"argonaut-list-item"}>
+                                <div>{argonaut.name}</div>
+                            </div>
+
+                        ))}
+                </div>
+            </div>
+        </>
+
     )
 }
 export default ListArgonaut
