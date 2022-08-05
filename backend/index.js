@@ -12,14 +12,14 @@ const port = process.env.PORT || 8000
 await MongoClient.connect(
     process.env.DB_URI,
 )
-.catch( err => {
-    console.log(err)
-    process.exit(1)
-})
-.then( async client => {
-    await ArgonautsDAO.injectDB(client)
-
-    app.listen(port, () => {
-        console.log(`listening on port ${port}`)
+    .catch(err => {
+        console.log(err)
+        process.exit(1)
     })
-})
+    .then(async client => {
+        await ArgonautsDAO.injectDB(client)
+
+        app.listen(port, () => {
+            console.log(`listening on port ${port}`)
+        })
+    })
