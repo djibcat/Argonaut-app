@@ -35,15 +35,16 @@
 .argonaut-list {
     display: flex;
     flex-wrap: wrap;
+    min-width: 50%;
 }
-.argonaut-list-item{
-    justify-content: center;
+.argonaut-list-item {
+    justify-content: space-evenly;
     display: flex;
     flex-basis: 33.33%;
 }
 .argonaut-list-item > div{
     display: inline-block;
     text-align: left;
-    min-width: 50%;
+    min-width: 25%;
     margin: 5%;
 }
